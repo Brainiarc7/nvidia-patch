@@ -1,4 +1,11 @@
 #!/bin/bash
+
+command -v realpath >/dev/null 2>&1 || {
+    echo >&2 "This script requires \`realpath\` command but it\`s not installed.";
+    echo >&2 "Please install \`coreutils\` package.";
+    exit 1;
+}
+
 input="$1"
 output="$2"
 replacecmd='s/\x0f\x84\x0b\xfe\xff\xff/\x90\x90\x90\x90\x90\x90/'
