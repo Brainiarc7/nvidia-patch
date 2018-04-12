@@ -9,6 +9,26 @@ user@host:~/nvidia-patch# ./patch.sh
 Usage: ./patch.sh <path to original libnvidia-encode.so.xxx.yy> <destination for patched libnvidia-encode.so.xxx.yy>
 ```
 
+## Steps:
+
+```
+
+mkdir ~/nvenc_backup
+
+cd ~/nvenc_backup
+
+cp /usr/lib/x86_64-linux-gnu/libnvidia-encode.so.* ~/nvenc_backup/
+
+wget https://raw.githubusercontent.com/Brainiarc7/nvidia-patch/master/patch.sh
+
+chmod +x patch.sh
+
+./patch.sh ~/nvenc_backup/libnvidia-encode.so.* /usr/lib/x86_64-linux-gnu/libnvidia-encode.so.*
+
+sudo systemctl reboot
+
+```
+
 ## See also
 
 If you experience `CreateBitstreamBuffer failed: out of memory (10)`, then you have to lower buffers number used for every encoding session. If you are using `ffmpeg`, consider using this [patch](https://gist.github.com/Snawoot/70ae403716c698cb86ab015626d72bd4).
