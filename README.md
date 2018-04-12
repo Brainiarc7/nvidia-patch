@@ -6,7 +6,7 @@ Binary patch for Nvidia Linux Display Driver which removes NVENC parallel sessio
 
 ```
 user@host:~/nvidia-patch# ./patch.sh 
-Usage: ./patch.sh <path to original libnvcuvid.so.xxx.yy> <destination for patched livnvcuvid.so.xxx.yy>
+Usage: ./patch.sh <path to original libnvidia-encode.so.xxx.yy> <destination for patched libnvidia-encode.so.xxx.yy>
 ```
 
 ## See also
