@@ -17,13 +17,13 @@ mkdir ~/nvenc_backup
 
 cd ~/nvenc_backup
 
-cp /usr/lib/x86_64-linux-gnu/libnvidia-encode.so.* ~/nvenc_backup/
+cp /usr/lib/nvidia-390/libnvidia-encode.so.390.30 ~/nvenc_backup/
 
 wget https://raw.githubusercontent.com/Brainiarc7/nvidia-patch/master/patch.sh
 
 chmod +x patch.sh
 
-./patch.sh ~/nvenc_backup/libnvidia-encode.so.* /usr/lib/x86_64-linux-gnu/libnvidia-encode.so.*
+./patch.sh ~/nvenc_backup/libnvidia-encode.so.390.30 /usr/lib/nvidia-390/libnvidia-encode.so.390.30
 
 sudo systemctl reboot
 
