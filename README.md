@@ -13,17 +13,23 @@ Usage: ./patch.sh <path to original libnvidia-encode.so.xxx.yy> <destination for
 
 ```
 
-mkdir ~/nvenc_backup
+mkdir ~/nvenc_backup/x32
+mkdir ~/nvenc_backup/x64
 
 cd ~/nvenc_backup
 
-cp /usr/lib/nvidia-390/libnvidia-encode.so.390.30 ~/nvenc_backup/
+cp /usr/lib/nvidia-390/libnvidia-encode.so.390.30 ~/nvenc_backup/x64
+
+cp /usr/lib32/nvidia-390/libnvidia-encode.so.390.30 ~/nvenc_backup/x32
+
 
 wget https://raw.githubusercontent.com/Brainiarc7/nvidia-patch/master/patch.sh
 
 chmod +x patch.sh
 
-./patch.sh ~/nvenc_backup/libnvidia-encode.so.390.30 /usr/lib/nvidia-390/libnvidia-encode.so.390.30
+./patch.sh ~/nvenc_backup/x64/libnvidia-encode.so.390.30 /usr/lib/nvidia-390/libnvidia-encode.so.390.30
+
+./patch.sh ~/nvenc_backup/x32/libnvidia-encode.so.390.30 /usr/lib32/nvidia-390/libnvidia-encode.so.390.30
 
 sudo systemctl reboot
 
